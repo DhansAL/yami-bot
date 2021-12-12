@@ -1,0 +1,29 @@
+{
+  "name": "yami-bot",
+  "version": "1.0.0",
+  "description": "a friendly discord bot ",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node -r dotenv/config ./prod/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DhansAL/yami-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DhansAL/yami-bot/issues"
+  },
+  "homepage": "https://github.com/DhansAL/yami-bot#readme",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "mongoose": "^6.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.12",
+    "typescript": "^4.5.3"
+  }
+}
