@@ -9,7 +9,7 @@ import { Types } from "mongoose";
 import { Yamishi } from "../interfaces/Yamishi";
 
 import { yamiLogHandler } from "./yamiLogHandler";
-// import { customSubstring } from "./customSubstring";
+import { customSubString } from "./customString";
 
 /**
  * Takes the error object generated within the code andlogs the
@@ -47,4 +47,5 @@ export const yamiErrorHandler = async (
   errorEmbed.setTitle(
     `${context} error ${guild ? "in " + guild : "from an unknown source"}`
   );
+  errorEmbed.setDescription(error.message)
 };
