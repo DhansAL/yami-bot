@@ -11,7 +11,7 @@ export interface Context {
   /**
    * Handles the logic for a given context menu interaction.
    *
-   * @param {Yamishi} Becca Becca's Discord instance.
+   * @param {Yamishi} Yami Yami's Discord instance.
    * @param {ContextMenuInteraction} interaction The context menu interaction payload.
    * @param {ServerConfig} config The server's settings from the database.
    */
