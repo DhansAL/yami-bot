@@ -13,9 +13,9 @@ export interface Yamishi extends Client {
   configs: {
     token: string;
     dbToken: string;
-    whUrl: string;
-    currencyUrl: string;
-    nasaKey: string;
+    // whUrl: string;
+    // currencyUrl: string;
+    // nasaKey: string;
     ownerId: string;
     love: string;
     yes: string;
@@ -24,10 +24,10 @@ export interface Yamishi extends Client {
     version: string;
     id: string;
     homeGuild: string;
-    topGG: string;
-    voteChannel: string;
-    habiticaKey: string;
-    orbitKey: string;
+    // topGG: string;
+    // voteChannel: string;
+    // habiticaKey: string;
+    // orbitKey: string;
   };
   colours: {
     default: ColorResolvable;

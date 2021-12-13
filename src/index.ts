@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
 import { Yamishi } from "./interfaces/Yamishi";
+import { validateEnv } from "./modules/validateENV";
 import { yamiLogHandler } from "./utils/yamiLogHandler";
 /**
  * This is the entry point for Yami's process. This will log the boot process,
@@ -15,4 +16,5 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
   }) as Yamishi; // this is tyype assertion
 
   yamiLogHandler.log("debug", "validating environment variables...");
+  const validatedEnv = validateEnv(Yami);
 })();
