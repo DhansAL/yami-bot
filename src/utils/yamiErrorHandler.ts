@@ -47,5 +47,43 @@ export const yamiErrorHandler = async (
   errorEmbed.setTitle(
     `${context} error ${guild ? "in " + guild : "from an unknown source"}`
   );
-  errorEmbed.setDescription(error.message)
+  errorEmbed.setColor(Yami.colours.error);
+  errorEmbed.setDescription(customSubString(error.message, 2000));
+
+  errorEmbed.addField(
+    "Stack Trace:",
+    `\`\`\`\n${customSubString(error.stack || "null", 1000)}\n\`\`\``
+  );
+
+  errorEmbed.addField("Error ID", errorId.toHexString());
+  errorEmbed.setTimestamp();
+
+  if (message) {
+    errorEmbed.addField(
+      "Message Content:",
+      customSubString(message.content, 1000)
+    );
+  }
+  if (interaction) {
+    errorEmbed.addField(
+      "Interaction Details",
+      ////getSubcommand  -error
+      customSubString(
+        `${interaction.commandName} || "" 
+        }`,
+        1000
+      )
+    );
+  }
+  errorEmbed.addField(
+    "Interaction Options",
+    customSubString(
+      interaction?.options.data[0].options
+        ?.map((o) => `\`${o.name}\` : ${o.value}`)
+        .join(", ") || "no options",
+      1000
+    )
+  );
+  await Yami.debugHook.send({ embeds: [errorEmbed] });
+  return errorId;
 };
