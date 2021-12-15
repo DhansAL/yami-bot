@@ -17,4 +17,7 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
 
   yamiLogHandler.log("debug", "validating environment variables...");
   const validatedEnv = validateEnv(Yami);
+  if (!validatedEnv.valid) {
+    yamiLogHandler.log("error", validateEnv.message);
+  }
 })();

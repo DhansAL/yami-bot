@@ -12,10 +12,10 @@ import { yamiLogHandler } from "../utils/yamiLogHandler";
  * Validates that all expected environment variables are set with *some* value.
  * typescript cant access .env directly so it will throw error
  * Does not validate that the values are valid. Constructs a config object and
- * attaches it to Becca's instance. Also constructs the colours and responses objects
+ * attaches it to Yami's instance. Also constructs the colours and responses objects
  * and attaches them.
  *
- * @param {BeccaLyria} Becca Becca's Discord instance.
+ * @param {Yamishi} Yami Yami's Discord instance.
  * @returns {Object} Object containing a valid property as boolean, and a message as string.
  */
 export const validateEnv = (
@@ -30,18 +30,6 @@ export const validateEnv = (
       return { valid: false, message: "Missing database connection string" };
     }
 
-    // if (!process.env.WH_URL) {
-    //   return { valid: false, message: "Missing Discord webhook URL" };
-    // }
-
-    // if (!process.env.CURRENCY_WH) {
-    //   return { valid: false, message: "Missing Discord Currency webhook URL" };
-    // }
-
-    // if (!process.env.NASA_API) {
-    //   beccaLogHandler.log("warn", "Missing NASA API key");
-    // }
-
     if (!process.env.OWNER_ID) {
       return { valid: false, message: "Missing Discord ID for owner account" };
     }
@@ -53,6 +41,18 @@ export const validateEnv = (
     if (!process.env.HOME_GUILD_ID) {
       return { valid: false, message: "Missing Bot's Home Guild ID" };
     }
+
+    // if (!process.env.WH_URL) {
+    //   return { valid: false, message: "Missing Discord webhook URL" };
+    // }
+
+    // if (!process.env.CURRENCY_WH) {
+    //   return { valid: false, message: "Missing Discord Currency webhook URL" };
+    // }
+
+    // if (!process.env.NASA_API) {
+    //   beccaLogHandler.log("warn", "Missing NASA API key");
+    // }
 
     // if (!process.env.TOPGG_PASSWORD) {
     //   return { valid: false, message: "Missing Top.gg password" };
