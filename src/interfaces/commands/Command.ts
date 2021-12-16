@@ -14,7 +14,7 @@ export interface Command {
    *
    * @param {Yamishi} Yami Yami's Discord instance.
    * @param {CommandInteraction} interaction -The interaction payload from Discord.  {interaction->discord->payload}
-   * @param {ServerConfig} config -The server configuration from the database.
+   * @param {ServerConfig} config The server configuration from the database.
    */
   run: (
     Yami: Yamishi,
