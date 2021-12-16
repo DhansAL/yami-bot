@@ -4,6 +4,7 @@ import { Yamishi } from "./interfaces/Yamishi";
 import { validateEnv } from "./modules/validateENV";
 import { loadCommands } from "./utils/loadCommands";
 import { loadContexts } from "./utils/loadContexts";
+import { registerCommands } from "./utils/registerCommands";
 import { yamiLogHandler } from "./utils/yamiLogHandler";
 /**
  * This is the entry point for Yami's process. This will log the boot process,
@@ -34,5 +35,13 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
   if (!commands.length || !contexts.length) {
     yamiLogHandler.log("error", "failed to import commands.");
     return;
+  }
+
+  if (process.env.NODE_ENV !== "production") {
+    yamiLogHandler.log("debug", "Registering commands in development");
+    const success = await registerCommands;
+    if (!success) {
+      yamiLogHandler.log("error", "failed to register commands.");
+    }
   }
 })();
