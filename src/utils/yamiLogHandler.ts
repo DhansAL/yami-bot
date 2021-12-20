@@ -9,9 +9,10 @@ const { combine, timestamp, colorize, printf } = format;
  * @param {string} level - The log level to use.
  * @param {string} message - The message to log.
  */
+
 export const yamiLogHandler = createLogger({
   levels: config.npm.levels,
-  level: "info",
+  level: "silly",
   transports: [new transports.Console()],
   format: combine(
     timestamp({

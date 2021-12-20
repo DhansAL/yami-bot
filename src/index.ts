@@ -1,5 +1,6 @@
 import { Client } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
+import { connectDatabase } from "./database/connectDatabase";
 import { Yamishi } from "./interfaces/Yamishi";
 import { validateEnv } from "./modules/validateENV";
 import { loadCommands } from "./utils/loadCommands";
@@ -24,24 +25,34 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
     yamiLogHandler.log("error", validatedEnv.message);
     return;
   }
-  // yamiLogHandler.log('debug', 'Initializing web server...');
+  // yamiLogHandler.log("debug", "Initializing web server...");
   // const server = await createServer(Yami);
 
-  yamiLogHandler.log("debug", "Importing commands...");
-  const commands = await loadCommands(Yami);
-  const contexts = await loadContexts(Yami);
-  Yami.commands = commands;
-  Yami.contexts = contexts;
-  if (!commands.length || !contexts.length) {
-    yamiLogHandler.log("error", "failed to import commands.");
-    return;
-  }
+  yamiLogHandler.error("debug", "Importing commands...");
+  // const commands = await loadCommands(Yami);
+  // const contexts = await loadContexts(Yami);
+  // Yami.commands = commands;
+  // Yami.contexts = contexts;
+  // if (!commands.length || !contexts.length) {
+  //   yamiLogHandler.log("error", "failed to import commands.");
+  //   return;
+  // }
 
   if (process.env.NODE_ENV !== "production") {
     yamiLogHandler.log("debug", "Registering commands in development");
-    const success = await registerCommands;
-    if (!success) {
-      yamiLogHandler.log("error", "failed to register commands.");
-    }
+    // const success = await registerCommands;
+    // if (!success) {
+    //   yamiLogHandler.log("error", "failed to register commands.");
+    // }
   }
+
+  yamiLogHandler.log("debug", "Initializing database...");
+  const databaseConnection = await connectDatabase(Yami);
+  if (!databaseConnection) {
+    yamiLogHandler.log("error", "failed to connect to database.");
+    return;
+  }
+
+  yamiLogHandler.log("debug", "Connecting to Discord...");
+  await Yami.login(Yami.configs.token);
 })();
