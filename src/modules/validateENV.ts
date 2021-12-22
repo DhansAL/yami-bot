@@ -42,9 +42,9 @@ export const validateEnv = (
       return { valid: false, message: "Missing Bot's Home Guild ID" };
     }
 
-    // if (!process.env.WH_URL) {
-    //   return { valid: false, message: "Missing Discord webhook URL" };
-    // }
+    if (!process.env.WH_URL) {
+      return { valid: false, message: "Missing Discord webhook URL" };
+    }
 
     // if (!process.env.CURRENCY_WH) {
     //   return { valid: false, message: "Missing Discord Currency webhook URL" };
@@ -75,7 +75,7 @@ export const validateEnv = (
     const configs: Yamishi["configs"] = {
       token: process.env.DISCORD_TOKEN,
       dbToken: process.env.MONGODB,
-      //   whUrl: process.env.WH_URL,
+      whUrl: process.env.WH_URL,
       //   currencyUrl: process.env.CURRENCY_WH,
       //   nasaKey: process.env.NASA_API || "",
       ownerId: process.env.OWNER_ID,

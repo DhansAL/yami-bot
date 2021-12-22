@@ -13,7 +13,7 @@ export interface Yamishi extends Client {
   configs: {
     token: string;
     dbToken: string;
-    // whUrl: string;
+    whUrl: string;
     // currencyUrl: string;
     // nasaKey: string;
     ownerId: string;

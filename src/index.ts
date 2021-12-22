@@ -1,6 +1,7 @@
 import { Client } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
+import { handleEvents } from "./events/handleEvents";
 import { Yamishi } from "./interfaces/Yamishi";
 import { validateEnv } from "./modules/validateENV";
 import { loadCommands } from "./utils/loadCommands";
@@ -28,7 +29,7 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
   // yamiLogHandler.log("debug", "Initializing web server...");
   // const server = await createServer(Yami);
 
-  yamiLogHandler.error("debug", "Importing commands...");
+  yamiLogHandler.debug("debug", "Importing commands...");
   // const commands = await loadCommands(Yami);
   // const contexts = await loadContexts(Yami);
   // Yami.commands = commands;
@@ -52,6 +53,9 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
     yamiLogHandler.log("error", "failed to connect to database.");
     return;
   }
+
+  yamiLogHandler.log("debug", "Attaching event listeners...");
+  handleEvents(Yami);
 
   yamiLogHandler.log("debug", "Connecting to Discord...");
   await Yami.login(Yami.configs.token);
