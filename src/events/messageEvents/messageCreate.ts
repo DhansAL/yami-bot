@@ -1,5 +1,6 @@
 import { Yamishi } from "../../interfaces/Yamishi";
 import { Message } from "discord.js";
+import { getSettings } from "../../modules/settings/getSettings";
 
 /**
  * Handles the onMessage event. Validates that the message did not come from
@@ -20,6 +21,10 @@ export const messageCreate = async (
         if(author.bot) return;
         if(!guild || channel.type === "DM") return;
 
-        const serverConfig = await 
+        const serverConfig = await getSettings(Yami,guild.id,guild.name);
+        if(!serverConfig){
+            throw new Error("Could not get server Configuration");
+            
+        }
     }
 }
