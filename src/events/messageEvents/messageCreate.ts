@@ -1,6 +1,7 @@
 import { Yamishi } from "../../interfaces/Yamishi";
 import { Message } from "discord.js";
 import { getSettings } from "../../modules/settings/getSettings";
+import { heartsListener } from "../../listeners/heartsListener";
 
 /**
  * Handles the onMessage event. Validates that the message did not come from
@@ -24,7 +25,8 @@ export const messageCreate = async (
         const serverConfig = await getSettings(Yami,guild.id,guild.name);
         if(!serverConfig){
             throw new Error("Could not get server Configuration");
-            
         }
+        await heartsListener.run(Yami, message, serverConfig);
+        
     }
 }
