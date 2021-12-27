@@ -5,6 +5,7 @@
  * @param {Yamishi} Yami Yami's Client instance.
  */
 import { Yamishi } from "../interfaces/Yamishi";
+import { ready } from "./clientEvents/ready";
 import { messageCreate } from "./messageEvents/messageCreate";
 import { shardError } from "./shardEvents/shardError";
 import { shardReady } from "./shardEvents/shardReady";
@@ -18,5 +19,8 @@ export const handleEvents = (Yami: Yamishi): void => {
   });
   Yami.on("messageCreate", async (message) => {
     await messageCreate(Yami, message);
+  });
+  Yami.on("ready", async () => {
+    await ready(Yami);
   });
 };
