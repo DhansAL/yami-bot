@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a4ed6087-cdb4-4abf-b00d-b6d48cbc1702" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/events/messageEvents/messageCreate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/events/messageEvents/messageCreate.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listeners/automod/automodLinks.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/listeners/automod/automodLinks.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/listeners/automodListener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/listeners/automodListener.ts" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="22jtrQdcGfhMVh8luFLbj6K1YVI" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a4ed6087-cdb4-4abf-b00d-b6d48cbc1702" name="Changes" comment="" />
+      <created>1640363026699</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1640363026699</updated>
+    </task>
+    <servers />
+  </component>
+</project>

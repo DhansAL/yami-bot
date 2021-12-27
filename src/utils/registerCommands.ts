@@ -1,5 +1,4 @@
 import { REST } from "@discordjs/rest";
-import { table } from "console";
 import {
   RESTPostAPIApplicationCommandsJSONBody,
   RESTPostAPIChatInputApplicationCommandsJSONBody,
@@ -32,9 +31,14 @@ export const registerCommands = async (Yami: Yamishi): Promise<boolean> => {
       | RESTPostAPIChatInputApplicationCommandsJSONBody
     )[] = [];
 
+    Yami.commands.forEach((command) =>
+      commandData.push(
+        command.data.toJSON() as RESTPostAPIApplicationCommandsJSONBody
+      )
+    );
     Yami.contexts.forEach((context) => commandData.push(context.data));
     if (process.env.NODE_ENV === "production") {
-      yamiLogHandler.log("debug", "registering commands globally");
+      yamiLogHandler.log("debug", "registering commands globally!");
       await rest.put(Routes.applicationCommands(Yami.configs.id), {
         body: commandData,
       });
