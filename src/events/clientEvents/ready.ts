@@ -1,5 +1,6 @@
 import { MessageEmbed } from "discord.js";
 import { Yamishi } from "../../interfaces/Yamishi";
+import { getCounts } from "../../modules/yami/getCounts";
 import { yamiLogHandler } from "../../utils/yamiLogHandler";
 
 /**
@@ -20,4 +21,6 @@ export const ready = async (Yami: Yamishi): Promise<void> => {
 
   await Yami.debugHook.send({ embeds: [readyEmbed] });
   yamiLogHandler.log("debug", "Discord ready!");
+
+  const counts = getCounts(Yami);
 };
