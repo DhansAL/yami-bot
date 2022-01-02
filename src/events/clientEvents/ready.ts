@@ -23,4 +23,7 @@ export const ready = async (Yami: Yamishi): Promise<void> => {
   yamiLogHandler.log("debug", "Discord ready!");
 
   const counts = getCounts(Yami);
+  yamiLogHandler.log("info", counts.commands);
+  yamiLogHandler.log("info", counts.members);
+  yamiLogHandler.log("info", counts.guilds);
 };

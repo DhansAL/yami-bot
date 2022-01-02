@@ -5,6 +5,7 @@
  * @param {Yamishi} Yami Yami's Client instance.
  */
 import { Yamishi } from "../interfaces/Yamishi";
+import { disconnect } from "./clientEvents/disconnect";
 import { ready } from "./clientEvents/ready";
 import { messageCreate } from "./messageEvents/messageCreate";
 import { shardError } from "./shardEvents/shardError";
@@ -22,5 +23,8 @@ export const handleEvents = (Yami: Yamishi): void => {
   });
   Yami.on("ready", async () => {
     await ready(Yami);
+  });
+  Yami.on("disconnect", async () => {
+    await disconnect(Yami);
   });
 };
