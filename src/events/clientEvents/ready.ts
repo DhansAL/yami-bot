@@ -22,8 +22,8 @@ export const ready = async (Yami: Yamishi): Promise<void> => {
   await Yami.debugHook.send({ embeds: [readyEmbed] });
   yamiLogHandler.log("debug", "Discord ready!");
 
-  const counts = getCounts(Yami);
-  yamiLogHandler.log("info", counts.commands);
-  yamiLogHandler.log("info", counts.members);
-  yamiLogHandler.log("info", counts.guilds);
+  // const counts = getCounts(Yami);
+  // yamiLogHandler.log("info", counts.commands);
+  // yamiLogHandler.log("info", counts.members);
+  // yamiLogHandler.log("info", counts.guilds);
 };

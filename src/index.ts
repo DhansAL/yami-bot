@@ -1,4 +1,4 @@
-import { Client } from "discord.js";
+import { Client, WebhookClient } from "discord.js";
 import { IntentOptions } from "./config/IntentOptions";
 import { connectDatabase } from "./database/connectDatabase";
 import { handleEvents } from "./events/handleEvents";
@@ -26,10 +26,13 @@ import { yamiLogHandler } from "./utils/yamiLogHandler";
     yamiLogHandler.log("error", validatedEnv.message);
     return;
   }
+
+  Yami.debugHook = new WebhookClient({ url: Yami.configs.whUrl });
+
   // yamiLogHandler.log("debug", "Initializing web server...");
   // const server = await createServer(Yami);
 
-  yamiLogHandler.debug("debug", "Importing commands...");
+  // yamiLogHandler.debug("debug", "Importing commands...");
   // const commands = await loadCommands(Yami);
   // const contexts = await loadContexts(Yami);
   // Yami.commands = commands;

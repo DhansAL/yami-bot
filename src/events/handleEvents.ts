@@ -12,9 +12,9 @@ import { shardError } from "./shardEvents/shardError";
 import { shardReady } from "./shardEvents/shardReady";
 
 export const handleEvents = (Yami: Yamishi): void => {
-  Yami.on("shardReady", async (shard) => {
-    await shardReady(Yami, shard);
-  });
+  // Yami.on("shardReady", async (shard) => {
+  //   await shardReady(Yami, shard);
+  // });
   Yami.on("shardError", async (error, shard) => {
     await shardError(Yami, error, shard);
   });

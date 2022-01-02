@@ -22,7 +22,7 @@ export const connectDatabase = async (Yami: Yamishi): Promise<boolean> => {
     );
     databaseEmbed.setTimestamp();
     databaseEmbed.setColor(Yami.colours.success);
-    // await Yami.debugHook.send({ embeds: [databaseEmbed] });
+    await Yami.debugHook.send({ embeds: [databaseEmbed] });
 
     return true;
   } catch (err) {

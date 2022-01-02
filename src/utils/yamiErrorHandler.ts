@@ -84,6 +84,6 @@ export const yamiErrorHandler = async (
       1000
     )
   );
-  // await Yami.debugHook.send({ embeds: [errorEmbed] });
+  await Yami.debugHook.send({ embeds: [errorEmbed] });
   return errorId;
 };
